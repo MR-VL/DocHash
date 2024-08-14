@@ -8,12 +8,11 @@ def compute_directory(directory):
 
 def compute_file(src):
     file_name = os.path.basename(src)
-    print(file_name +"\n"+ src)
     hash_file(src, file_name)
 
 def get_extension(file_name):
     split = os.path.splitext(file_name)
-
+    return split[1]
 
 def hash_file(file_src, old_name):
     extension = get_extension(old_name)
@@ -24,9 +23,10 @@ def hash_file(file_src, old_name):
             hasher.update(chunk)
 
     new_name = hasher.hexdigest()
-    #rename_file(file_src, new_name)
+    new_name = new_name + extension
 
-    print(file_src + " "+ old_name + " "+ new_name)
+    new_file_path = os.path.join(os.path.dirname(file_src), new_name)
+    rename_file(file_src, new_file_path)
 
 
 def rename_file(old_name, new_name):
