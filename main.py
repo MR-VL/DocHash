@@ -2,11 +2,22 @@ import os
 import hashlib
 
 
+def write_error(x, path):
+    print(str(x)+ " " + path)
+
+
 def compute_directory(directory):
+    x=0
     for filename in os.listdir(directory):
+
         path = os.path.join(directory, filename)
         if os.path.isfile(path):
-            compute_file(path)
+            try:
+                compute_file(path)
+            except:
+                x = x + 1
+                write_error(x, path)
+                continue
 
 
 def compute_file(src):
