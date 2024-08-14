@@ -3,7 +3,10 @@ import hashlib
 
 
 def compute_directory(directory):
-    compute_file(directory)
+    for filename in os.listdir(directory):
+        path = os.path.join(directory, filename)
+        if os.path.isfile(path):
+            compute_file(path)
 
 
 def compute_file(src):
@@ -40,6 +43,6 @@ if __name__ == '__main__':
     compute_directory(name)
 
 
-#C:\Users\miket\Downloads\test.pdf
+#C:\Users\miket\Downloads\test
 #Hash
 # text.pdf
