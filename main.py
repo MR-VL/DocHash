@@ -22,8 +22,16 @@ def write_duplicate(x, path, directory):
         writer.writerow([])
 
 
+def create_manifest(x, path):
+    file = f"{x}|    {path}"
+    with open('manifest.csv', 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([file])
+
+
 def compute_directory(directory):
     x = 0
+    y = 0
     try:
         for filename in os.listdir(directory):
             path = os.path.join(directory, filename)
@@ -34,6 +42,8 @@ def compute_directory(directory):
                     try:
                         duplicates.append(hash_value)
                         rename_file(path, hash_value)
+                        y = y + 1
+                        create_manifest(y, path)
                     except Exception as e:
                         raise Exception(f"\nCritical error in file: {path}\nError: {str(e)}")
                 else:
