@@ -32,7 +32,7 @@ def compute_directory(directory):
                 hash_value = hash_file(path, filename)
                 if hash_value not in duplicates:
                     try:
-                        duplicates.append(hash_value)  # Mark the hash value as processed
+                        duplicates.append(hash_value)
                         rename_file(path, hash_value)
                     except Exception as e:
                         raise Exception(f"\nCritical error in file: {path}\nError: {str(e)}")
@@ -41,7 +41,7 @@ def compute_directory(directory):
                     write_duplicate(x, path, directory)
 
             elif os.path.isdir(path):
-                compute_directory(path)  # Recursively process subdirectories
+                compute_directory(path)
 
     except Exception as e:
         raise Exception(f"\nCritical error in directory: {directory}\nError: {str(e)}")
