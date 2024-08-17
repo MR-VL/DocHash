@@ -22,6 +22,13 @@ def write_duplicate(x, path, directory):
         writer.writerow([])
 
 
+def remove_manifest():
+    try:
+        os.remove('manifest.csv')
+    except FileNotFoundError:
+        pass
+
+
 def create_manifest(x, path):
     file = f"{x}|    {path}"
     with open('manifest.csv', 'a', newline='') as csvfile:
@@ -86,8 +93,49 @@ def rename_file(old_name, new_name):
         os.rename(old_name, new_name)
 
 
+def print_menu():
+    choice = int(input("Enter your choice:\n"
+                       "0: End program\n"
+                       "1: Hash and rename files starting from directory (all subdirectory included) "
+                       "Manifest file auto included.\n"
+                       "2: Only create manifest file\n"
+                       "3: Delete manifest file\n"
+                       "4: Delete duplicates list file\n"
+                       )
+                 )
+
+    return choice
+
+
 if __name__ == '__main__':
-    remove_duplicates()
-    name = input("Enter the directory you want to rename to hash value [USE C NOTATION] "
-                 "(Example C:/Users/name/Desktop):\n")
-    compute_directory(name)
+    param = -1
+
+    while param != 0:
+        try:
+            param = print_menu()
+
+            if param == 0:
+                break
+
+            elif param == 1:
+                name = input("Enter the directory you want to rename to hash value [USE C NOTATION] "
+                             "(Example C:/Users/name/Desktop):\n")
+                compute_directory(name)
+
+            elif param == 2:
+                print("hello")
+                # TODO
+
+            elif param == 3:
+                remove_manifest()
+
+            elif param == 4:
+                remove_duplicates()
+
+            else:
+                print("Invalid Choice")
+                param = print_menu()
+
+        except:
+            print("Invalid Choice\nYou must choose a valid item from the menu")
+            param = print_menu()
