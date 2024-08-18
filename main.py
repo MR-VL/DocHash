@@ -36,7 +36,7 @@ def create_manifest(x, path):
         writer.writerow([file])
 
 
-def compute_directory(directory):
+def compute_directory(directory, rename):
     x = 0
     y = 0
     try:
@@ -47,8 +47,9 @@ def compute_directory(directory):
                 hash_value = hash_file(path, filename)
                 if hash_value not in duplicates:
                     try:
-                        duplicates.append(hash_value)
-                        rename_file(path, hash_value)
+                        if rename:
+                            duplicates.append(hash_value)
+                            rename_file(path, hash_value)
                         y = y + 1
                         create_manifest(y, path)
                     except Exception as e:
@@ -58,7 +59,7 @@ def compute_directory(directory):
                     write_duplicate(x, path, directory)
 
             elif os.path.isdir(path):
-                compute_directory(path)
+                compute_directory(path, rename)
 
     except Exception as e:
         raise Exception(f"\nCritical error in directory: {directory}\nError: {str(e)}")
@@ -118,13 +119,18 @@ if __name__ == '__main__':
                 break
 
             elif param == 1:
-                name = input("Enter the directory you want to rename to hash value [USE C NOTATION] "
+                name = input("Enter the directory you want to rename to hash value [USE C NOTATION] \n"
+                             "Manifest file automatically created"
                              "(Example C:/Users/name/Desktop):\n")
-                compute_directory(name)
+                remove_manifest()
+                remove_manifest()
+                compute_directory(name, True)
 
             elif param == 2:
-                print("hello")
-                # TODO
+                name = input("Enter the directory you want to create a manifest file for [USE C NOTATION] "
+                             "(Example C:/Users/name/Desktop):\n")
+                remove_manifest()
+                compute_directory(name, False)
 
             elif param == 3:
                 remove_manifest()
