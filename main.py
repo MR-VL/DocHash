@@ -18,7 +18,7 @@ def write_duplicate(x, path, directory):
         writer = csv.writer(csvfile)
         writer.writerow([directory])
         writer.writerow([file])
-        writer.writerow([f"HASH: {hash_file(path, '')}"])
+        writer.writerow([f"HASH: {hash_file(path, '', hash_algo)}"])
         writer.writerow([])
 
 
@@ -36,7 +36,7 @@ def create_manifest(x, path):
         writer.writerow([file])
 
 
-def compute_directory(directory, rename):
+def compute_directory(directory, rename, hash_algo):
     x = 0
     y = 0
     try:
@@ -44,7 +44,7 @@ def compute_directory(directory, rename):
             path = os.path.join(directory, filename)
 
             if os.path.isfile(path):
-                hash_value = hash_file(path, filename)
+                hash_value = hash_file(path, filename, hash_algo)
                 if hash_value not in duplicates:
                     try:
                         if rename:
@@ -59,17 +59,11 @@ def compute_directory(directory, rename):
                     write_duplicate(x, path, directory)
 
             elif os.path.isdir(path):
-                compute_directory(path, rename)
+                compute_directory(path, rename, hash_algo)
 
     except Exception as e:
         raise Exception(f"\nCritical error in directory: {directory}\nError: {str(e)}")
 
-
-def compute_file(src):
-    duplicates.clear()
-    file_name = os.path.basename(src)
-    new_name = hash_file(src, file_name)
-    rename_file(src, new_name)
 
 
 def get_extension(file_name):
@@ -77,7 +71,7 @@ def get_extension(file_name):
     return split[1]
 
 
-def hash_file(file_src, old_name):
+def hash_file(file_src, old_name, hash_algo):
     extension = get_extension(old_name)
 
     hasher = hash_algo
@@ -110,7 +104,7 @@ def print_menu():
 
 
 def get_hash_algo(number):
-    global hash_algo
+
     if number == 1:
         hash_algo = hashlib.md5()
         print("Hashing files using: MD-5")
@@ -150,7 +144,7 @@ def get_hash_algo(number):
         hash_algo = hashlib.shake_256()
     else:
         print("CRITICAL ERROR: Critical error occurred when determining hash algorithm")
-
+    return hash_algo
 
 def get_hashtype():
     number = 0
@@ -172,7 +166,7 @@ def get_hashtype():
                      )
         if number < 1 or number > 11:
             print("Invalid choice. Please try again.")
-    get_hash_algo(number)
+    return get_hash_algo(number)
 
 
 if __name__ == '__main__':
@@ -183,21 +177,22 @@ if __name__ == '__main__':
         param = print_menu()
 
         if param == 1:
-            get_hashtype()
+            hash_algo = get_hashtype()
             name = input("Enter the directory you want to rename to hash value [USE C NOTATION] \n"
                          "Manifest file automatically created"
                          "(Example C:/Users/name/Desktop):\n")
             remove_manifest()
             remove_manifest()
 
-            compute_directory(name, True)
+            compute_directory(name, True, hash_algo)
             print("\nFiles renamed and manifest file created\n")
 
         elif param == 2:
+            hash_algo = hashlib.sha256()
             name = input("Enter the directory you want to create a manifest file for [USE C NOTATION] "
                          "(Example C:/Users/name/Desktop):\n")
             remove_manifest()
-            compute_directory(name, False)
+            compute_directory(name, False, hash_algo)
             print("\nManifest file successfully created\n")
 
         elif param == 3:
@@ -214,4 +209,4 @@ if __name__ == '__main__':
 
     except:
         print("Invalid Choice\nYou must choose a valid item from the menu")
-        param = print_menu()
+
