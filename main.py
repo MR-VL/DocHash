@@ -205,7 +205,6 @@ if __name__ == '__main__':
 
         else:
             print("Invalid Choice")
-            param = print_menu()
 
     except:
         print("Invalid Choice\nYou must choose a valid item from the menu")
