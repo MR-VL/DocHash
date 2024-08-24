@@ -109,6 +109,7 @@ def print_menu():
     return choice
 
 
+
 def get_hash_algo(number):
     global hash_algo
     if number == 1:
@@ -175,9 +176,8 @@ def get_hashtype():
     get_hash_algo(number)
 
 
-if __name__ == '__main__':
-    param = -1
 
+if __name__ == '__main__':
 
     try:
         param = print_menu()
