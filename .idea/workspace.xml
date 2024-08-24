@@ -22,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -33,6 +34,25 @@
     <option name="showLibraryContents" value="true" />
   </component>
 
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for test.TestDocHash.executor": "Run",
+    "Python tests.Python tests for test.TestFileProcessing.executor": "Run",
+    "Python tests.Python tests for test.TestFileProcessing.test_compute_directory.executor": "Run",
+    "Python tests.Python tests in test.py.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "fixHashChoice",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+ main
   <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="DocHash" />
@@ -213,7 +233,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="fixHashChoice" />
                       </list>
                     </value>
                   </entry>
@@ -233,5 +253,13 @@
     <MESSAGE value="finish menu" />
     <MESSAGE value="Unit Tests" />
 
+    <MESSAGE value="add finish statements" />
+    <MESSAGE value="It works but it does not rehash files that have been previously hashed" />
+    <option name="LAST_COMMIT_MESSAGE" value="It works but it does not rehash files that have been previously hashed" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DocHash$.coverage" NAME=" Coverage Results" MODIFIED="1724541368805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tests" />
+    <SUITE FILE_PATH="coverage/DocHash$main.coverage" NAME="main Coverage Results" MODIFIED="1724542313363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+ main
   </component>
 </project>
