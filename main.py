@@ -3,7 +3,6 @@ import hashlib
 import csv
 
 duplicates = []
-hash_algo = hashlib.sha256()
 
 
 def remove_duplicates():
@@ -81,7 +80,7 @@ def get_extension(file_name):
 def hash_file(file_src, old_name):
     extension = get_extension(old_name)
 
-    hasher = hashlib.sha256()
+    hasher = hash_algo
     with open(file_src, 'rb') as file_found:
         while chunk := file_found.read(8192):
             hasher.update(chunk)
