@@ -3,6 +3,7 @@ import hashlib
 import csv
 
 duplicates = []
+hash_algo = hashlib.sha256()
 
 
 def remove_duplicates():
@@ -66,6 +67,7 @@ def compute_directory(directory, rename):
 
 
 def compute_file(src):
+    duplicates.clear()
     file_name = os.path.basename(src)
     new_name = hash_file(src, file_name)
     rename_file(src, new_name)
@@ -108,44 +110,109 @@ def print_menu():
     return choice
 
 
+def get_hash_algo(number):
+    global hash_algo
+    if number == 1:
+        hash_algo = hashlib.md5()
+        print("Hashing files using: MD-5")
+        print("\nWarning: md5 may have collisions in the hashed name and cause errors resulting to false "
+              "duplicates...\n\n")
+    elif number == 2:
+        hash_algo = hashlib.sha1()
+        print("Hashing files using: sha-1")
+        print("\nWarning: sha-1 may have collisions in the hashed name and cause errors resulting to false "
+              "duplicates...\n\n")
+    elif number == 3:
+        print("Hashing files using: sha-224")
+        hash_algo = hashlib.sha224()
+    elif number == 4:
+        print("Hashing files using: sha-256")
+        hash_algo = hashlib.sha256()
+    elif number == 5:
+        print("Hashing files using: sha-384")
+        hash_algo = hashlib.sha384()
+    elif number == 6:
+        print("Hashing files using: sha-512")
+        hash_algo = hashlib.sha512()
+    elif number == 7:
+        print("Hashing files using: sha3-224")
+        hash_algo = hashlib.sha3_224()
+    elif number == 8:
+        print("Hashing files using: sha3-384")
+        hash_algo = hashlib.sha3_384()
+    elif number == 9:
+        print("Hashing files using: sha512-512")
+        hash_algo = hashlib.sha3_512()
+    elif number == 10:
+        print("Hashing files using: shake-128")
+        hash_algo = hashlib.shake_128()
+    elif number == 11:
+        print("Hashing files using: shake-256")
+        hash_algo = hashlib.shake_256()
+    else:
+        print("CRITICAL ERROR: Critical error occurred when determining hash algorithm")
+
+
+def get_hashtype():
+    number = 0
+
+    while number < 1 or number > 11:
+        number = int(input("Choose the hash algorithm you want to use:\n"
+                           "1: MD-5\n"
+                           "2: sha-1\n"
+                           "3: sha-224\n"
+                           "4: sha-256\n"
+                           "5: sha-384\n"
+                           "6: sha-512\n"
+                           "7: sha3-224\n"
+                           "8: sha3-384\n"
+                           "9: sha3-512\n"
+                           "10: shake-128\n"
+                           "11: shake-256\n"
+                           )
+                     )
+        if number < 1 or number > 11:
+            print("Invalid choice. Please try again.")
+    get_hash_algo(number)
+
+
 if __name__ == '__main__':
     param = -1
 
-    while param != 0:
-        try:
+
+    try:
+        param = print_menu()
+
+        if param == 1:
+            get_hashtype()
+            name = input("Enter the directory you want to rename to hash value [USE C NOTATION] \n"
+                         "Manifest file automatically created"
+                         "(Example C:/Users/name/Desktop):\n")
+            remove_manifest()
+            remove_manifest()
+
+            compute_directory(name, True)
+            print("\nFiles renamed and manifest file created\n")
+
+        elif param == 2:
+            name = input("Enter the directory you want to create a manifest file for [USE C NOTATION] "
+                         "(Example C:/Users/name/Desktop):\n")
+            remove_manifest()
+            compute_directory(name, False)
+            print("\nManifest file successfully created\n")
+
+        elif param == 3:
+            remove_manifest()
+            print("Manifest file removed")
+
+        elif param == 4:
+            remove_duplicates()
+            print("Duplicates file removed")
+
+        else:
+            print("Invalid Choice")
             param = print_menu()
 
-            if param == 0:
-                break
-
-            elif param == 1:
-                name = input("Enter the directory you want to rename to hash value [USE C NOTATION] \n"
-                             "Manifest file automatically created"
-                             "(Example C:/Users/name/Desktop):\n")
-                remove_manifest()
-                remove_manifest()
-                compute_directory(name, True)
-                print("\nFiles renamed and manifest file created\n")
-
-            elif param == 2:
-                name = input("Enter the directory you want to create a manifest file for [USE C NOTATION] "
-                             "(Example C:/Users/name/Desktop):\n")
-                remove_manifest()
-                compute_directory(name, False)
-                print("\nManifest file successfully created\n")
-
-            elif param == 3:
-                remove_manifest()
-                print("Manifest file removed")
-
-            elif param == 4:
-                remove_duplicates()
-                print("Duplicates file removed")
-
-            else:
-                print("Invalid Choice")
-                param = print_menu()
-
-        except:
-            print("Invalid Choice\nYou must choose a valid item from the menu")
-            param = print_menu()
+    except:
+        print("Invalid Choice\nYou must choose a valid item from the menu")
+        param = print_menu()
