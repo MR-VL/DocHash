@@ -125,18 +125,22 @@ if __name__ == '__main__':
                 remove_manifest()
                 remove_manifest()
                 compute_directory(name, True)
+                print("\nFiles renamed and manifest file created\n")
 
             elif param == 2:
                 name = input("Enter the directory you want to create a manifest file for [USE C NOTATION] "
                              "(Example C:/Users/name/Desktop):\n")
                 remove_manifest()
                 compute_directory(name, False)
+                print("\nManifest file successfully created\n")
 
             elif param == 3:
                 remove_manifest()
+                print("Manifest file removed")
 
             elif param == 4:
                 remove_duplicates()
+                print("Duplicates file removed")
 
             else:
                 print("Invalid Choice")
