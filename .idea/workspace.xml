@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
+    <list default="true" id="3298bad9-fc57-4f93-bc1c-4437ef5fdbfd" name="Changes" comment="update branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +21,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -33,26 +31,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for test.TestDocHash.executor": "Run",
-    "Python tests.Python tests for test.TestFileProcessing.executor": "Run",
-    "Python tests.Python tests for test.TestFileProcessing.test_compute_directory.executor": "Run",
-    "Python tests.Python tests in test.py.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "fixHashChoice",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test.TestDocHash.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestFileProcessing.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestFileProcessing.test_compute_directory.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
- main
+}</component>
   <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="DocHash" />
@@ -166,7 +162,8 @@
       <option name="presentableId" value="Default" />
       <updated>1723654806649</updated>
       <workItem from="1723654881025" duration="617000" />
-
+      <workItem from="1724005006496" duration="4048000" />
+      <workItem from="1724529935173" duration="410000" />
     </task>
     <task id="LOCAL-00001" summary="fixed subdirectory breaking">
       <option name="closed" value="true" />
@@ -216,7 +213,7 @@
       <option name="project" value="LOCAL" />
       <updated>1724007774273</updated>
     </task>
-
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +230,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="fixHashChoice" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -252,14 +249,11 @@
     <MESSAGE value="create menu" />
     <MESSAGE value="finish menu" />
     <MESSAGE value="Unit Tests" />
-
-    <MESSAGE value="add finish statements" />
-    <MESSAGE value="It works but it does not rehash files that have been previously hashed" />
-    <option name="LAST_COMMIT_MESSAGE" value="It works but it does not rehash files that have been previously hashed" />
+    <MESSAGE value="update branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="update branch" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DocHash$.coverage" NAME=" Coverage Results" MODIFIED="1724541368805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tests" />
-    <SUITE FILE_PATH="coverage/DocHash$main.coverage" NAME="main Coverage Results" MODIFIED="1724542313363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
- main
+    <SUITE FILE_PATH="coverage/DocHash$.coverage" NAME=" Coverage Results" MODIFIED="1724542672458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tests" />
+    <SUITE FILE_PATH="coverage/DocHash$main.coverage" NAME="main Coverage Results" MODIFIED="1724543790711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
